@@ -73,7 +73,7 @@ export function createElement(type, config, children) {
     self = config.__self === undefined ? null : config.__self;
     source = config.__source === undefined ? null : config.__source;
     
-    // ㄅㄚ
+    // ㄅㄚ// Remaining properties are added to a new props object
     for (propName in config) {
       if (
         hasOwnProperty.call(config, propName) &&
@@ -137,7 +137,7 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDAwNTU2NzQsLTEzMjI4NjEwMCw1OD
-k1NTY3NjgsLTEzNjkzMzMzNTAsLTE4NTgxNDAwMzgsMzAzNDU2
-NTg2XX0=
+eyJoaXN0b3J5IjpbMTQzMTMzNzc4MCwtMTk0MDA1NTY3NCwtMT
+MyMjg2MTAwLDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMTg1ODE0
+MDAzOCwzMDM0NTY1ODZdfQ==
 -->
