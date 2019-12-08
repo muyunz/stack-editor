@@ -19,3 +19,6 @@
 原先是利用遞迴來進行 diff 運算，而每進入一個函數會建立一個上下文環境，這將會有多餘的資源消耗，而改成單鏈表則能單鏈表
 #### React Hook 中紀錄 hook 執行順序的 `updateQueue` 及紀錄對應狀態的 `memonizedState` 存在於 `fiber` 中
 #### React Element > React Fiber
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNjEyNjczMTIwXX0=
+-->
