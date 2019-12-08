@@ -14,15 +14,8 @@
 1. JIT優化
 ## Fiber 實現方式
 ## 未整理內容
-1. 深度優先遍歷
-2. 遞迴 > 遍歷(單鏈表)
+#### 深度優先遍歷
+#### 遞迴 > 遍歷(單鏈表)
 原先是利用遞迴來進行 diff 運算，而每進入一個函數會建立一個上下文環境，這將會有多餘的資源消耗，而改成單鏈表則能單鏈表
-3. React Hook 中紀錄 hook 執行順序的 `updateQueue` 及紀錄對應狀態的 `memonizedState` 存在於 `fiber` 中
-4. React Element > React Fiber
-5. 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwODk2OTg3NSwtMTEwMjk5NDAzNiwtOD
-E5MDA3ODQ0LDEyNDUwNzU4MjgsMTM0NzY1NDE5MCwyMDc5OTEy
-MDc0LC0xMjA0NTA2NDg3LC0xNTkxOTM5NDI5LDg2NTMzMzE5NV
-19
--->
+#### React Hook 中紀錄 hook 執行順序的 `updateQueue` 及紀錄對應狀態的 `memonizedState` 存在於 `fiber` 中
+#### React Element > React Fiber
