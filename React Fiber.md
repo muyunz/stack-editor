@@ -235,6 +235,14 @@ module.exports = ReactDOM.default || ReactDOM;
 
 `react-dom/client/ReactDom.js`
 ```javascript
+import {
+  findDOMNode,
+  render,
+  hydrate,
+  unstable_renderSubtreeIntoContainer,
+  unmountComponentAtNode,
+} from './ReactDOMLegacy';
+
 const ReactDOM: Object = {
   createPortal,
 
@@ -245,11 +253,45 @@ const ReactDOM: Object = {
   unstable_renderSubtreeIntoContainer,
   unmountComponentAtNode,
 ```
-擷取其中一小段，rend
+擷取其中一小段，繼續跟進
+
+`react-dom/client/ReactDOMLegacy.js`
+```
+export function render(
+  element: React$Element<any>,
+  container: DOMContainer,
+  callback: ?Function,
+) {
+  invariant(
+    isValidContainer(container),
+    'Target container is not a DOM element.',
+  );
+  if (__DEV__) {
+    const isModernRoot =
+      isContainerMarkedAsRoot(container) &&
+      container._reactRootContainer === undefined;
+    if (isModernRoot) {
+      warningWithoutStack(
+        false,
+        'You are calling ReactDOM.render() on a container that was previously ' +
+          'passed to ReactDOM.createRoot(). This is not supported. ' +
+          'Did you mean to call root.render(element)?',
+      );
+    }
+  }
+  return legacyRenderSubtreeIntoContainer(
+    null,
+    element,
+    container,
+    false,
+    callback,
+  );
+}
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDY3NzAyNDEsMTQyNzgzNzI0MSwxMD
-IwOTYxNDI3LDExODg0OTYzMDMsLTE1NTU4NjIyNDksMjA2NzY5
-NzI3Miw5NzY1MDgzMzgsMTk5Nzg3NjYwOCwyMDkyNTM3NjYsMT
-QzMTMzNzc4MCwtMTMyMjg2MTAwLDU4OTU1Njc2OCwtMTM2OTMz
-MzM1MCwtMTg1ODE0MDAzOCwzMDM0NTY1ODZdfQ==
+eyJoaXN0b3J5IjpbMTQ4MDA3MDU3MCwxNDI3ODM3MjQxLDEwMj
+A5NjE0MjcsMTE4ODQ5NjMwMywtMTU1NTg2MjI0OSwyMDY3Njk3
+MjcyLDk3NjUwODMzOCwxOTk3ODc2NjA4LDIwOTI1Mzc2NiwxND
+MxMzM3NzgwLC0xMzIyODYxMDAsNTg5NTU2NzY4LC0xMzY5MzMz
+MzUwLC0xODU4MTQwMDM4LDMwMzQ1NjU4Nl19
 -->
