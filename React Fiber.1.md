@@ -3,7 +3,8 @@
 
 ### 為何要改架構？
 1. 瀏覽器是 Single-Thread
-2. 
+瀏覽器渲染流程：JS > Style > Layout > Paint > Composite
+
 #### 原先方式 ( Stack Reconciliation )
 1. 
 #### 未來 ( Suspense, Concurrent Mode )
@@ -11,6 +12,6 @@
 ## Fiber 實現方式
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjUwNDMzNTYsLTE1OTE5Mzk0MjldfQ
+eyJoaXN0b3J5IjpbLTE5ODQ4NDYzNTAsLTE1OTE5Mzk0MjldfQ
 ==
 -->
