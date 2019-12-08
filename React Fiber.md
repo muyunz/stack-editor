@@ -216,10 +216,11 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
   return element;
 };
 ```
+建立 `ReactElement` 的流程簡單先到這裡，街
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyNzgzNzI0MSwxMDIwOTYxNDI3LDExOD
-g0OTYzMDMsLTE1NTU4NjIyNDksMjA2NzY5NzI3Miw5NzY1MDgz
-MzgsMTk5Nzg3NjYwOCwyMDkyNTM3NjYsMTQzMTMzNzc4MCwtMT
-MyMjg2MTAwLDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMTg1ODE0
-MDAzOCwzMDM0NTY1ODZdfQ==
+eyJoaXN0b3J5IjpbLTQyOTkxNDkzOSwxNDI3ODM3MjQxLDEwMj
+A5NjE0MjcsMTE4ODQ5NjMwMywtMTU1NTg2MjI0OSwyMDY3Njk3
+MjcyLDk3NjUwODMzOCwxOTk3ODc2NjA4LDIwOTI1Mzc2NiwxND
+MxMzM3NzgwLC0xMzIyODYxMDAsNTg5NTU2NzY4LC0xMzY5MzMz
+MzUwLC0xODU4MTQwMDM4LDMwMzQ1NjU4Nl19
 -->
