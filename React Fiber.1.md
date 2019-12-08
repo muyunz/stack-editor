@@ -20,7 +20,7 @@
 ## 未整理內容
 
 #### 深度優先遍歷
-
+...
 #### 遞迴 > 遍歷(單鏈表)
 原先是利用遞迴來進行 diff 運算，而每進入一個函數會建立一個上下文環境，這將會有多餘的資源消耗，而改成單鏈表則能單鏈表
 
@@ -29,7 +29,7 @@ React Hook 中紀錄 hook 執行順序的 `updateQueue` 及紀錄對應狀態的
 
 #### React Element > React Fiber
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTUxNjY3NzQsLTExMDI5OTQwMzYsLT
-gxOTAwNzg0NCwxMjQ1MDc1ODI4LDEzNDc2NTQxOTAsMjA3OTkx
-MjA3NCwtMTIwNDUwNjQ4NywtMTU5MTkzOTQyOV19
+eyJoaXN0b3J5IjpbMjA2OTgwODcwLC0xMTAyOTk0MDM2LC04MT
+kwMDc4NDQsMTI0NTA3NTgyOCwxMzQ3NjU0MTkwLDIwNzk5MTIw
+NzQsLTEyMDQ1MDY0ODcsLTE1OTE5Mzk0MjldfQ==
 -->
