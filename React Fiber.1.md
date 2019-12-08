@@ -2,11 +2,13 @@
 # React Fiber
 
 ### 為何要改架構？
+
 #### 原先方式 ( Stack Reconciliation )
+1. 
 #### 未來 ( Suspense, Concurrent Mode )
 
 ## Fiber 實現方式
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTM5NTY2NDEyXX0=
+eyJoaXN0b3J5IjpbLTE1OTE5Mzk0MjldfQ==
 -->
