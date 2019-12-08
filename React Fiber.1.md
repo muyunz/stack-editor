@@ -85,9 +85,9 @@ export function createElement(type, config, children) {
   }
   
   // -2 是因前兩個屬性 type, config
-  // 這之後的參數皆為子組件
+  // 這之後的參數皆為
   const childrenLength = arguments.length - 2;
-  // 如果只有一個子組件
+  // 如果只有一個
   if (childrenLength === 1) {
     props.children = children;
   } else if (childrenLength > 1) {
@@ -109,7 +109,7 @@ export function createElement(type, config, children) {
 
   // 如果 type 擁有 defaultProps (Class Component, Function Component)
   if (type && type.defaultProps) {
-    const defaultProps = type.defaultProps;
+   e  = type.defaultProps;
     // 寫入預設 props
     for (propName in defaultProps) {
       if (props[propName] === undefined) {
@@ -148,10 +148,10 @@ export function createElement(type, config, children) {
 ```javascript
 const ReactElement = function(type, key, ref, self, source, owner, props) {
   const element = {
-    // This tag allows us to uniquely identify this as a React Element
+    // React 內建型別系統，REACT_ELEMENT_TYPE 代表 ReactElement
     $$typeof: REACT_ELEMENT_TYPE,
 
-    // Built-in properties that belong on the element
+	// 內建屬性
     type: type,
     key: key,
     ref: ref,
@@ -203,7 +203,7 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
 };
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTY3NzM2MTcsOTc2NTA4MzM4LC0xMz
+eyJoaXN0b3J5IjpbLTE1NTU4NjIyNDksOTc2NTA4MzM4LC0xMz
 IyODYxMDAsNTg5NTU2NzY4LC0xODU4MTQwMDM4LC0xMTAyOTk0
 MDM2LC04MTkwMDc4NDQsMTI0NTA3NTgyOCwxMzQ3NjU0MTkwLD
 IwNzk5MTIwNzQsLTEyMDQ1MDY0ODcsLTE1OTE5Mzk0MjldfQ==
