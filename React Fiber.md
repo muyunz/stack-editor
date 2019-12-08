@@ -69,9 +69,11 @@ export function createElement(type, config, children) {
       key = '' + config.key;
     }
 	
+	// for JSX
     self = config.__self === undefined ? null : config.__self;
     source = config.__source === undefined ? null : config.__source;
     
+    // ㄅㄚ
     for (propName in config) {
       if (
         hasOwnProperty.call(config, propName) &&
@@ -135,7 +137,7 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyNDcyNDg4NywtMTMyMjg2MTAwLDU4OT
-U1Njc2OCwtMTM2OTMzMzM1MCwtMTg1ODE0MDAzOCwzMDM0NTY1
-ODZdfQ==
+eyJoaXN0b3J5IjpbLTE5NDAwNTU2NzQsLTEzMjI4NjEwMCw1OD
+k1NTY3NjgsLTEzNjkzMzMzNTAsLTE4NTgxNDAwMzgsMzAzNDU2
+NTg2XX0=
 -->
