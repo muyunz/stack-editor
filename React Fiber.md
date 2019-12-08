@@ -43,7 +43,9 @@ React.createElement(Card, {
   className: "card-header"
 }));
 ```
+對應
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzNDgxNTM0MCw1ODk1NTY3NjgsLTEzNj
+eyJoaXN0b3J5IjpbLTEzMjI4NjEwMCw1ODk1NTY3NjgsLTEzNj
 kzMzMzNTAsLTE4NTgxNDAwMzgsMzAzNDU2NTg2XX0=
 -->
