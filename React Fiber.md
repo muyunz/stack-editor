@@ -144,6 +144,17 @@ export function createElement(type, config, children) {
   );
 }
 ```
+簡單說明一下 `ReactCurrentOwner.current`
+```javascript
+import type {Fiber} from 'react-reconciler/src/ReactFiber';
+
+const ReactCurrentOwner = {
+  current: (null: null | Fiber),
+};
+
+export default ReactCurrentOwner;
+```
+
 接續上方 Code
 ```javascript
 const ReactElement = function(type, key, ref, self, source, owner, props) {
@@ -203,8 +214,8 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
 };
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTU4NjIyNDksMjA2NzY5NzI3Miw5Nz
-Y1MDgzMzgsMTk5Nzg3NjYwOCwyMDkyNTM3NjYsMTQzMTMzNzc4
-MCwtMTMyMjg2MTAwLDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMT
-g1ODE0MDAzOCwzMDM0NTY1ODZdfQ==
+eyJoaXN0b3J5IjpbMTA1Mjg5MzgyLC0xNTU1ODYyMjQ5LDIwNj
+c2OTcyNzIsOTc2NTA4MzM4LDE5OTc4NzY2MDgsMjA5MjUzNzY2
+LDE0MzEzMzc3ODAsLTEzMjI4NjEwMCw1ODk1NTY3NjgsLTEzNj
+kzMzMzNTAsLTE4NTgxNDAwMzgsMzAzNDU2NTg2XX0=
 -->
