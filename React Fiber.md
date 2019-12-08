@@ -59,16 +59,19 @@ export function createElement(type, config, children) {
 
   // 如果有額外的屬性
   if (config != null) {
+    // 如果有 ref，檢測是否合法
     if (hasValidRef(config)) {
       ref = config.ref;
     }
+    // 如果有 key，檢測是否合法
     if (hasValidKey(config)) {
+	  // 轉成字串
       key = '' + config.key;
     }
-
+	
     self = config.__self === undefined ? null : config.__self;
     source = config.__source === undefined ? null : config.__source;
-    // Remaining properties are added to a new props object
+    
     for (propName in config) {
       if (
         hasOwnProperty.call(config, propName) &&
@@ -132,7 +135,7 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTkyNjUzMjkzLC0xMzIyODYxMDAsNTg5NT
-U2NzY4LC0xMzY5MzMzMzUwLC0xODU4MTQwMDM4LDMwMzQ1NjU4
-Nl19
+eyJoaXN0b3J5IjpbMTAyNDcyNDg4NywtMTMyMjg2MTAwLDU4OT
+U1Njc2OCwtMTM2OTMzMzM1MCwtMTg1ODE0MDAzOCwzMDM0NTY1
+ODZdfQ==
 -->
