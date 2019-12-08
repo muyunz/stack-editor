@@ -170,7 +170,7 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
     ref: ref,
     props: props,
 
-    // Record the component responsible for creating this element.
+    // 在某些階段會被寫入值，代表目前正在建構的組件的所屬的組件(父組件)
     _owner: owner,
   };
 
@@ -216,8 +216,9 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
 };
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4ODQ5NjMwMywtMTU1NTg2MjI0OSwyMD
-Y3Njk3MjcyLDk3NjUwODMzOCwxOTk3ODc2NjA4LDIwOTI1Mzc2
-NiwxNDMxMzM3NzgwLC0xMzIyODYxMDAsNTg5NTU2NzY4LC0xMz
-Y5MzMzMzUwLC0xODU4MTQwMDM4LDMwMzQ1NjU4Nl19
+eyJoaXN0b3J5IjpbMTAyMDk2MTQyNywxMTg4NDk2MzAzLC0xNT
+U1ODYyMjQ5LDIwNjc2OTcyNzIsOTc2NTA4MzM4LDE5OTc4NzY2
+MDgsMjA5MjUzNzY2LDE0MzEzMzc3ODAsLTEzMjI4NjEwMCw1OD
+k1NTY3NjgsLTEzNjkzMzMzNTAsLTE4NTgxNDAwMzgsMzAzNDU2
+NTg2XX0=
 -->
