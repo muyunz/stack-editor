@@ -234,9 +234,20 @@ module.exports = ReactDOM.default || ReactDOM;
 ```
 
 `react-dom/client/ReactDom.js`
+```javascript
+const ReactDOM: Object = {
+  createPortal,
 
+  // Legacy
+  findDOMNode,
+  hydrate,
+  render,
+  unstable_renderSubtreeIntoContainer,
+  unmountComponentAtNode,
+```
+擷取其中一小段，rend
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzE4NDY4MDMsMTQyNzgzNzI0MSwxMD
+eyJoaXN0b3J5IjpbLTEzNDY3NzAyNDEsMTQyNzgzNzI0MSwxMD
 IwOTYxNDI3LDExODg0OTYzMDMsLTE1NTU4NjIyNDksMjA2NzY5
 NzI3Miw5NzY1MDgzMzgsMTk5Nzg3NjYwOCwyMDkyNTM3NjYsMT
 QzMTMzNzc4MCwtMTMyMjg2MTAwLDU4OTU1Njc2OCwtMTM2OTMz
