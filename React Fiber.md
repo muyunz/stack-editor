@@ -218,16 +218,24 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
 ```
 建立 `ReactElement` 的流程簡單先到這裡，接下來我們跳到 `react-dom` 來看整個渲染流程。
 
+這是一個常見的入口
+
 ```javascript
 ReactDOM.render(
   <App/>,
   document.getElementById("root")
 );
 ```
+
+`react-dom/index.js`
+```javascript
+const ReactDOM = require('./src/client/ReactDOM');
+module.exports = ReactDOM.default || ReactDOM;
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzODI3NzEzMCwxNDI3ODM3MjQxLDEwMj
-A5NjE0MjcsMTE4ODQ5NjMwMywtMTU1NTg2MjI0OSwyMDY3Njk3
-MjcyLDk3NjUwODMzOCwxOTk3ODc2NjA4LDIwOTI1Mzc2NiwxND
-MxMzM3NzgwLC0xMzIyODYxMDAsNTg5NTU2NzY4LC0xMzY5MzMz
-MzUwLC0xODU4MTQwMDM4LDMwMzQ1NjU4Nl19
+eyJoaXN0b3J5IjpbMTA2NzQwMDg4LDE0Mjc4MzcyNDEsMTAyMD
+k2MTQyNywxMTg4NDk2MzAzLC0xNTU1ODYyMjQ5LDIwNjc2OTcy
+NzIsOTc2NTA4MzM4LDE5OTc4NzY2MDgsMjA5MjUzNzY2LDE0Mz
+EzMzc3ODAsLTEzMjI4NjEwMCw1ODk1NTY3NjgsLTEzNjkzMzMz
+NTAsLTE4NTgxNDAwMzgsMzAzNDU2NTg2XX0=
 -->
