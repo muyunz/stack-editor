@@ -6,6 +6,9 @@
 
 3. 瀏覽器是 Single-Thread
 瀏覽器渲染流程：JS > Style > Layout > Paint > Composite
+![](https://miro.medium.com/max/2186/0*_qpgAjv7U3Q3X6k1.jpg)
+
+[https://developers.google.com/web/fundamentals/performance/rendering/](https://developers.google.com/web/fundamentals/performance/rendering/)
 
 #### 原先方式 ( Stack Reconciliation )
 1. 
@@ -14,6 +17,6 @@
 ## Fiber 實現方式
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDQ1MDY0ODcsLTE1OTE5Mzk0MjldfQ
-==
+eyJoaXN0b3J5IjpbLTE2NzY0MzQyNzYsLTEyMDQ1MDY0ODcsLT
+E1OTE5Mzk0MjldfQ==
 -->
