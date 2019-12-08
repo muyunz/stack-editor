@@ -28,8 +28,8 @@
 #### React Hook
 React Hook 中紀錄 hook 執行順序的 `updateQueue` 及紀錄對應狀態的 `memonizedState` 存在於 `fiber` 中
 
-#### React Element > React Fiber
-JSX
+#### React Element => React Fiber
+<JSX
 ```javascript
 <Card className="card">
   <div className="card-header"></div>
@@ -43,9 +43,10 @@ React.createElement(Card, {
   className: "card-header"
 }));
 ```
-對應
+[Source](https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js#L316)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMjI4NjEwMCw1ODk1NTY3NjgsLTEzNj
-kzMzMzNTAsLTE4NTgxNDAwMzgsMzAzNDU2NTg2XX0=
+eyJoaXN0b3J5IjpbLTc0OTk3Mjc3LC0xMzIyODYxMDAsNTg5NT
+U2NzY4LC0xMzY5MzMzMzUwLC0xODU4MTQwMDM4LDMwMzQ1NjU4
+Nl19
 -->
