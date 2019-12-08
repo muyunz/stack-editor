@@ -290,7 +290,8 @@ function legacyRenderSubtreeIntoContainer(
   forceHydrate: boolean,
   callback: ?Function,
 ) {
-  // paremnt
+  // parentComponent = <App/>
+  // chi
   if (__DEV__) {
     topLevelUpdateWarnings(container);
     warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
@@ -334,7 +335,7 @@ function legacyRenderSubtreeIntoContainer(
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NTI3NTU1MywtMTIwMDAyODY2MiwxND
+eyJoaXN0b3J5IjpbLTM2NTM5NjAxOCwtMTIwMDAyODY2MiwxND
 gwMDcwNTcwLDE0Mjc4MzcyNDEsMTAyMDk2MTQyNywxMTg4NDk2
 MzAzLC0xNTU1ODYyMjQ5LDk3NjUwODMzOCwtMTMyMjg2MTAwLD
 U4OTU1Njc2OCwtMTg1ODE0MDAzOCwtMTEwMjk5NDAzNiwtODE5
