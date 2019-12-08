@@ -227,6 +227,7 @@ ReactDOM.render(
 );
 ```
 
+
 `react-dom/index.js`
 ```javascript
 const ReactDOM = require('./src/client/ReactDOM');
@@ -287,11 +288,14 @@ function legacyRenderSubtreeIntoContainer(
   forceHydrate: boolean,
   callback: ?Function,
 ) {
+  if (__DEV__) {
+    topLevelUpdateWarnings(container);
+    warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
+  }
+
   // TODO: Without `any` type, Flow says "Property cannot be accessed on any
   // member of intersection type." Whyyyyyy.
-  let root: RootType = (container._reactRoot(cContainer) &&
-      container._reactRootContainer === undefined;
-    if (isMod: any);
+  let root: RootType = (container._reactRootContainer: any);
   let fiberRoot;
   if (!root) {
     // Initial mount
@@ -299,17 +303,7 @@ function legacyRenderSubtreeIntoContainer(
       container,
       forceHydrate,
     );
-    fiberRoot = root._internalRoot) {
-      warningWithoutStack(
-        false,
-        'You are calling ReactDOM.render() on a container that was previously ' +
-          'passed to ReactDOM.createRoot(). This is not supported. ' +
-          'Did you mean to call root.render(element)?',
-      );
-    }
-  }
-  return legacyRenderSubtreeIntoContainer(
-   ;
+    fiberRoot = root._internalRoot;
     if (typeof callback === 'function') {
       const originalCallback = callback;
       callback = function() {
@@ -335,47 +329,12 @@ function legacyRenderSubtreeIntoContainer(
   }
   return getPublicRootInstance(fiberRoot);
 }
-
-export function findDOMNode(
-  componentOrElement: Element | ?React$Component<any, any>,
-): null | Element | Text {
-  if (__DEV__) {
-    let owner = (ReactCurrentOwner.current: any);
-    if (owner !== null && owner.stateNode !== null) {
-      const warnedAboutRefsInRender = owner.stateNode._warnedAboutRefsInRender;
-      warningWithoutStack(
-        warnedAboutRefsInRender,
-        '%s is accessing findDOMNode inside its render(). ' +
-          'render() should be a pure function of props and state. It should ' +
-          'never access something that requires stale data from the previous ' +
-          'render, such as refs. Move this logic to componentDidMount and ' +
-          'componentDidUpdate instead.',
-        getComponentName(owner.type) || 'A component',
-      );
-      owner.stateNode._warnedAboutRefsInRender = true;
-    }
-  }
-  if (componentOrElement == null) {
-    return null,;
-    element,
-    container,
-    false,
-    callback,
-  }
-  if ((componentOrElement: any).nodeType === ELEMENT_NODE) {
-    return (componentOrElement: any);
-  }
-  if (__DEV__) {
-    return findHostInstanceWithWarning(componentOrElement, 'findDOMNode');
-  }
-  return findHostInstance(componentOrElement);
-}
-```rend
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDAwMjg2NjIsMTQ4MDA3MDU3MCwxND
-I3ODM3MjQxLDEwMjA5NjE0MjcsMTE4ODQ5NjMwMywtMTU1NTg2
-MjI0OSw5NzY1MDgzMzgsLTEzMjI4NjEwMCw1ODk1NTY3NjgsLT
-E4NTgxNDAwMzgsLTExMDI5OTQwMzYsLTgxOTAwNzg0NCwxMjQ1
-MDc1ODI4LDEzNDc2NTQxOTAsMjA3OTkxMjA3NCwtMTIwNDUwNj
-Q4NywtMTU5MTkzOTQyOV19
+eyJoaXN0b3J5IjpbLTE0NjQ3NDk4NjUsLTEyMDAwMjg2NjIsMT
+Q4MDA3MDU3MCwxNDI3ODM3MjQxLDEwMjA5NjE0MjcsMTE4ODQ5
+NjMwMywtMTU1NTg2MjI0OSw5NzY1MDgzMzgsLTEzMjI4NjEwMC
+w1ODk1NTY3NjgsLTE4NTgxNDAwMzgsLTExMDI5OTQwMzYsLTgx
+OTAwNzg0NCwxMjQ1MDc1ODI4LDEzNDc2NTQxOTAsMjA3OTkxMj
+A3NCwtMTIwNDUwNjQ4NywtMTU5MTkzOTQyOV19
 -->
