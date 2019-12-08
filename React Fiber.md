@@ -287,11 +287,6 @@ function legacyRenderSubtreeIntoContainer(
   forceHydrate: boolean,
   callback: ?Function,
 ) {
-  if (__DEV__) {
-    topLevelUpdateWarnings(container);
-    warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
-  }
-
   // TODO: Without `any` type, Flow says "Property cannot be accessed on any
   // member of intersection type." Whyyyyyy.
   let root: RootType = (container._reactRoot(cContainer) &&
@@ -377,7 +372,7 @@ export function findDOMNode(
 }
 ```rend
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTYyNjAxNjEsLTE1OTM5MzAyMDcsMT
+eyJoaXN0b3J5IjpbLTEyMDAwMjg2NjIsLTE1OTM5MzAyMDcsMT
 Q4MDA3MDU3MCwxNDI3ODM3MjQxLDEwMjA5NjE0MjcsMTE4ODQ5
 NjMwMywtMTU1NTg2MjI0OSwyMDY3Njk3MjcyLDk3NjUwODMzOC
 wxOTk3ODc2NjA4LDIwOTI1Mzc2NiwxNDMxMzM3NzgwLC0xMzIy
