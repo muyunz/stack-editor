@@ -227,7 +227,6 @@ ReactDOM.render(
 );
 ```
 
-
 `react-dom/index.js`
 ```javascript
 const ReactDOM = require('./src/client/ReactDOM');
@@ -254,6 +253,7 @@ const ReactDOM: Object = {
   unstable_renderSubtreeIntoContainer,
   unmountComponentAtNode,
 ```
+
 擷取其中一小段，繼續跟進
 
 `react-dom/client/ReactDOMLegacy.js`
@@ -263,6 +263,8 @@ export function render(
   container: DOMContainer,
   callback: ?Function,
 ) {
+  // element = <App/>
+  // container = document.
   invariant(
     isValidContainer(container),
     'Target container is not a DOM element.',
@@ -331,10 +333,10 @@ function legacyRenderSubtreeIntoContainer(
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjQ3NDk4NjUsLTEyMDAwMjg2NjIsMT
-Q4MDA3MDU3MCwxNDI3ODM3MjQxLDEwMjA5NjE0MjcsMTE4ODQ5
-NjMwMywtMTU1NTg2MjI0OSw5NzY1MDgzMzgsLTEzMjI4NjEwMC
-w1ODk1NTY3NjgsLTE4NTgxNDAwMzgsLTExMDI5OTQwMzYsLTgx
-OTAwNzg0NCwxMjQ1MDc1ODI4LDEzNDc2NTQxOTAsMjA3OTkxMj
-A3NCwtMTIwNDUwNjQ4NywtMTU5MTkzOTQyOV19
+eyJoaXN0b3J5IjpbLTI5MzIxNTkyMywtMTIwMDAyODY2MiwxND
+gwMDcwNTcwLDE0Mjc4MzcyNDEsMTAyMDk2MTQyNywxMTg4NDk2
+MzAzLC0xNTU1ODYyMjQ5LDk3NjUwODMzOCwtMTMyMjg2MTAwLD
+U4OTU1Njc2OCwtMTg1ODE0MDAzOCwtMTEwMjk5NDAzNiwtODE5
+MDA3ODQ0LDEyNDUwNzU4MjgsMTM0NzY1NDE5MCwyMDc5OTEyMD
+c0LC0xMjA0NTA2NDg3LC0xNTkxOTM5NDI5XX0=
 -->
