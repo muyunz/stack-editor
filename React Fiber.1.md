@@ -262,7 +262,13 @@ export function render(
   container: DOMContainer,
   callback: ?Function,
 ) {
-  // 略
+  invariant(
+    isValidContainer(container),
+    'Target container is not a DOM element.',
+  );
+  if (__DEV__) {
+  RootontainerernRoot null  const isModernRoot =
+      isContainerMarkedAs// 略
   return legacyRenderSubtreeIntoContainer(
     null,
     element,
@@ -281,14 +287,11 @@ function legacyRenderSubtreeIntoContainer(
   forceHydrate: boolean,
   callback: ?Function,
 ) {
-  if (__DEV__) {
-    topLevelUpdateWarnings(container);
-    warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
-  }
-
   // TODO: Without `any` type, Flow says "Property cannot be accessed on any
   // member of intersection type." Whyyyyyy.
-  let root: RootType = (container._reactRootContainer: any);
+  let root: RootType = (container._reactRoot(cContainer) &&
+      container._reactRootContainer === undefined;
+    if (isMod: any);
   let fiberRoot;
   if (!root) {
     // Initial mount
@@ -296,7 +299,17 @@ function legacyRenderSubtreeIntoContainer(
       container,
       forceHydrate,
     );
-    fiberRoot = root._internalRoot;
+    fiberRoot = root._internalRoot) {
+      warningWithoutStack(
+        false,
+        'You are calling ReactDOM.render() on a container that was previously ' +
+          'passed to ReactDOM.createRoot(). This is not supported. ' +
+          'Did you mean to call root.render(element)?',
+      );
+    }
+  }
+  return legacyRenderSubtreeIntoContainer(
+   ;
     if (typeof callback === 'function') {
       const originalCallback = callback;
       callback = function() {
@@ -343,7 +356,11 @@ export function findDOMNode(
     }
   }
   if (componentOrElement == null) {
-    return null;
+    return null,;
+    element,
+    container,
+    false,
+    callback,
   }
   if ((componentOrElement: any).nodeType === ELEMENT_NODE) {
     return (componentOrElement: any);
@@ -353,12 +370,12 @@ export function findDOMNode(
   }
   return findHostInstance(componentOrElement);
 }
-```
+```rend
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzNDAyOTk2LDE0ODAwNzA1NzAsMTQyNz
-gzNzI0MSwxMDIwOTYxNDI3LDExODg0OTYzMDMsLTE1NTU4NjIy
-NDksOTc2NTA4MzM4LC0xMzIyODYxMDAsNTg5NTU2NzY4LC0xOD
-U4MTQwMDM4LC0xMTAyOTk0MDM2LC04MTkwMDc4NDQsMTI0NTA3
-NTgyOCwxMzQ3NjU0MTkwLDIwNzk5MTIwNzQsLTEyMDQ1MDY0OD
-csLTE1OTE5Mzk0MjldfQ==
+eyJoaXN0b3J5IjpbLTEyMDAwMjg2NjIsMTQ4MDA3MDU3MCwxND
+I3ODM3MjQxLDEwMjA5NjE0MjcsMTE4ODQ5NjMwMywtMTU1NTg2
+MjI0OSw5NzY1MDgzMzgsLTEzMjI4NjEwMCw1ODk1NTY3NjgsLT
+E4NTgxNDAwMzgsLTExMDI5OTQwMzYsLTgxOTAwNzg0NCwxMjQ1
+MDc1ODI4LDEzNDc2NTQxOTAsMjA3OTkxMjA3NCwtMTIwNDUwNj
+Q4NywtMTU5MTkzOTQyOV19
 -->
