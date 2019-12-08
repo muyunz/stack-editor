@@ -174,6 +174,7 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
     _owner: owner,
   };
 
+  // TODO: 這段暫時跳過
   if (__DEV__) {
     // The validation flag is currently mutative. We put it on
     // an external backing store so that we can freeze the whole object.
@@ -216,9 +217,9 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
 };
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMDk2MTQyNywxMTg4NDk2MzAzLC0xNT
-U1ODYyMjQ5LDIwNjc2OTcyNzIsOTc2NTA4MzM4LDE5OTc4NzY2
-MDgsMjA5MjUzNzY2LDE0MzEzMzc3ODAsLTEzMjI4NjEwMCw1OD
-k1NTY3NjgsLTEzNjkzMzMzNTAsLTE4NTgxNDAwMzgsMzAzNDU2
-NTg2XX0=
+eyJoaXN0b3J5IjpbMTQyNzgzNzI0MSwxMDIwOTYxNDI3LDExOD
+g0OTYzMDMsLTE1NTU4NjIyNDksMjA2NzY5NzI3Miw5NzY1MDgz
+MzgsMTk5Nzg3NjYwOCwyMDkyNTM3NjYsMTQzMTMzNzc4MCwtMT
+MyMjg2MTAwLDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMTg1ODE0
+MDAzOCwzMDM0NTY1ODZdfQ==
 -->
