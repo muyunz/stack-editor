@@ -17,8 +17,9 @@
 1. 深度優先遍歷
 2. 遞迴 > 遍歷(單鏈表)
 原先是利用遞迴來進行 diff 運算，而每進入一個函數會建立一個上下文環境，這將會有多餘的資源消耗，而改成單鏈表則能單鏈表
-
+3.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0NTA3NTgyOCwxMzQ3NjU0MTkwLDIwNz
-k5MTIwNzQsLTEyMDQ1MDY0ODcsLTE1OTE5Mzk0MjldfQ==
+eyJoaXN0b3J5IjpbLTE5NDg1MzkwMTUsMTI0NTA3NTgyOCwxMz
+Q3NjU0MTkwLDIwNzk5MTIwNzQsLTEyMDQ1MDY0ODcsLTE1OTE5
+Mzk0MjldfQ==
 -->
