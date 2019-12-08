@@ -85,9 +85,9 @@ export function createElement(type, config, children) {
   }
   
   // -2 是因前兩個屬性 type, config
-  // 這之後的參數皆為子組件
+  // 這之後的參數皆為
   const childrenLength = arguments.length - 2;
-  // 如果只有一個子組件
+  // 如果只有一個
   if (childrenLength === 1) {
     props.children = children;
   } else if (childrenLength > 1) {
@@ -109,7 +109,7 @@ export function createElement(type, config, children) {
 
   // 如果 type 擁有 defaultProps (Class Component, Function Component)
   if (type && type.defaultProps) {
-    const defaultProps = type.defaultProps;
+   e  = type.defaultProps;
     // 寫入預設 props
     for (propName in defaultProps) {
       if (props[propName] === undefined) {
@@ -145,8 +145,8 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDA4MzA5MjksOTc2NTA4MzM4LDE5OT
-c4NzY2MDgsMjA5MjUzNzY2LDE0MzEzMzc3ODAsLTEzMjI4NjEw
-MCw1ODk1NTY3NjgsLTEzNjkzMzMzNTAsLTE4NTgxNDAwMzgsMz
-AzNDU2NTg2XX0=
+eyJoaXN0b3J5IjpbMjA2NzY5NzI3MiwtMTEwMDgzMDkyOSw5Nz
+Y1MDgzMzgsMTk5Nzg3NjYwOCwyMDkyNTM3NjYsMTQzMTMzNzc4
+MCwtMTMyMjg2MTAwLDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMT
+g1ODE0MDAzOCwzMDM0NTY1ODZdfQ==
 -->
