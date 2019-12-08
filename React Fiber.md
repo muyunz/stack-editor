@@ -100,14 +100,14 @@ export function createElement(type, config, children) {
 	// 開發模式
     if (__DEV__) {
       if (Object.freeze) {
-        // 凍結陣列，屎崎
+        // 凍結陣列，使其不能被修改
         Object.freeze(childArray);
       }
     }
     props.children = childArray;
   }
 
-  // Resolve default props
+  // 如果 type 擁有
   if (type && type.defaultProps) {
     const defaultProps = type.defaultProps;
     for (propName in defaultProps) {
@@ -142,8 +142,8 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxMjE0OTcxLDk3NjUwODMzOCwxOTk3OD
-c2NjA4LDIwOTI1Mzc2NiwxNDMxMzM3NzgwLC0xMzIyODYxMDAs
-NTg5NTU2NzY4LC0xMzY5MzMzMzUwLC0xODU4MTQwMDM4LDMwMz
-Q1NjU4Nl19
+eyJoaXN0b3J5IjpbLTY0NzUzNTc1OSw5NzY1MDgzMzgsMTk5Nz
+g3NjYwOCwyMDkyNTM3NjYsMTQzMTMzNzc4MCwtMTMyMjg2MTAw
+LDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMTg1ODE0MDAzOCwzMD
+M0NTY1ODZdfQ==
 -->
