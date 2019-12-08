@@ -107,15 +107,17 @@ export function createElement(type, config, children) {
     props.children = childArray;
   }
 
-  // 如果 type 擁有 defaultProps (Class Component, Func
+  // 如果 type 擁有 defaultProps (Class Component, Function Component)
   if (type && type.defaultProps) {
     const defaultProps = type.defaultProps;
+    // 寫入預設 props
     for (propName in defaultProps) {
       if (props[propName] === undefined) {
         props[propName] = defaultProps[propName];
       }
     }
   }
+  // 開發模式
   if (__DEV__) {
     if (key || ref) {
       const displayName =
@@ -130,6 +132,7 @@ export function createElement(type, config, children) {
       }
     }
   }
+//
   return ReactElement(
     type,
     key,
@@ -142,8 +145,9 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQyMzY0Nzc1LDk3NjUwODMzOCwtMTMyMj
-g2MTAwLDU4OTU1Njc2OCwtMTg1ODE0MDAzOCwtMTEwMjk5NDAz
-NiwtODE5MDA3ODQ0LDEyNDUwNzU4MjgsMTM0NzY1NDE5MCwyMD
-c5OTEyMDc0LC0xMjA0NTA2NDg3LC0xNTkxOTM5NDI5XX0=
+eyJoaXN0b3J5IjpbLTE3MDY3MzA1NzcsOTc2NTA4MzM4LC0xMz
+IyODYxMDAsNTg5NTU2NzY4LC0xODU4MTQwMDM4LC0xMTAyOTk0
+MDM2LC04MTkwMDc4NDQsMTI0NTA3NTgyOCwxMzQ3NjU0MTkwLD
+IwNzk5MTIwNzQsLTEyMDQ1MDY0ODcsLTE1OTE5Mzk0MjldfQ==
+
 -->
