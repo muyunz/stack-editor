@@ -84,8 +84,10 @@ export function createElement(type, config, children) {
     }
   }
   
-  
+  // -2 是因前兩個屬性 type, config
+  // 這之後的參數皆為 children
   const childrenLength = arguments.length - 2;
+  // 如果只有
   if (childrenLength === 1) {
     props.children = children;
   } else if (childrenLength > 1) {
@@ -136,8 +138,8 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ1ODQyMzgxLC0xMzIyODYxMDAsNTg5NT
-U2NzY4LC0xODU4MTQwMDM4LC0xMTAyOTk0MDM2LC04MTkwMDc4
-NDQsMTI0NTA3NTgyOCwxMzQ3NjU0MTkwLDIwNzk5MTIwNzQsLT
-EyMDQ1MDY0ODcsLTE1OTE5Mzk0MjldfQ==
+eyJoaXN0b3J5IjpbLTE4NjEzMzQwNDYsLTEzMjI4NjEwMCw1OD
+k1NTY3NjgsLTE4NTgxNDAwMzgsLTExMDI5OTQwMzYsLTgxOTAw
+Nzg0NCwxMjQ1MDc1ODI4LDEzNDc2NTQxOTAsMjA3OTkxMjA3NC
+wtMTIwNDUwNjQ4NywtMTU5MTkzOTQyOV19
 -->
