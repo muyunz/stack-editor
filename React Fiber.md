@@ -107,7 +107,7 @@ export function createElement(type, config, children) {
     props.children = childArray;
   }
 
-  // 如果 type 擁有
+  // 如果 type 擁有 defaultProps (Class Component, Function Componetn
   if (type && type.defaultProps) {
     const defaultProps = type.defaultProps;
     for (propName in defaultProps) {
@@ -142,7 +142,7 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0NzUzNTc1OSw5NzY1MDgzMzgsMTk5Nz
+eyJoaXN0b3J5IjpbLTQ1OTkxNTU0MCw5NzY1MDgzMzgsMTk5Nz
 g3NjYwOCwyMDkyNTM3NjYsMTQzMTMzNzc4MCwtMTMyMjg2MTAw
 LDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMTg1ODE0MDAzOCwzMD
 M0NTY1ODZdfQ==
