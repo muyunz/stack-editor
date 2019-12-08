@@ -226,7 +226,6 @@ ReactDOM.render(
   document.getElementById("root")
 );
 ```
-並以此
 
 `react-dom/index.js`
 ```javascript
@@ -254,6 +253,7 @@ const ReactDOM: Object = {
   unstable_renderSubtreeIntoContainer,
   unmountComponentAtNode,
 ```
+
 擷取其中一小段，繼續跟進
 
 `react-dom/client/ReactDOMLegacy.js`
@@ -263,6 +263,8 @@ export function render(
   container: DOMContainer,
   callback: ?Function,
 ) {
+  // element = <App/>
+  // container = document.
   invariant(
     isValidContainer(container),
     'Target container is not a DOM element.',
@@ -331,7 +333,7 @@ function legacyRenderSubtreeIntoContainer(
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzA1MTkwMCwtMTIwMDAyODY2MiwtMT
+eyJoaXN0b3J5IjpbLTI5MzIxNTkyMywtMTIwMDAyODY2MiwtMT
 U5MzkzMDIwNywxNDgwMDcwNTcwLDE0Mjc4MzcyNDEsMTAyMDk2
 MTQyNywxMTg4NDk2MzAzLC0xNTU1ODYyMjQ5LDIwNjc2OTcyNz
 IsOTc2NTA4MzM4LDE5OTc4NzY2MDgsMjA5MjUzNzY2LDE0MzEz
