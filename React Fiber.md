@@ -73,7 +73,7 @@ export function createElement(type, config, children) {
     self = config.__self === undefined ? null : config.__self;
     source = config.__source === undefined ? null : config.__source;
     
-    // 只寫入非內建 props
+    // 只寫入非把除了內建 props 以外注入
     for (propName in config) {
       if (
         hasOwnProperty.call(config, propName) &&
@@ -138,7 +138,7 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjEzMzQwNDYsMTQzMTMzNzc4MCwtMT
-MyMjg2MTAwLDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMTg1ODE0
-MDAzOCwzMDM0NTY1ODZdfQ==
+eyJoaXN0b3J5IjpbMjA5MjUzNzY2LC0xODYxMzM0MDQ2LDE0Mz
+EzMzc3ODAsLTEzMjI4NjEwMCw1ODk1NTY3NjgsLTEzNjkzMzMz
+NTAsLTE4NTgxNDAwMzgsMzAzNDU2NTg2XX0=
 -->
