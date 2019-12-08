@@ -148,10 +148,10 @@ export function createElement(type, config, children) {
 ```javascript
 const ReactElement = function(type, key, ref, self, source, owner, props) {
   const element = {
-    // This tag allows us to uniquely identify this as a React Element
+    // React 內建型別系統，REACT_ELEMENT_TYPE 代表 ReactElement
     $$typeof: REACT_ELEMENT_TYPE,
 
-    // Built-in properties that belong on the element
+	// 內建屬性
     type: type,
     key: key,
     ref: ref,
@@ -203,8 +203,8 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
 };
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzODcwNzAzNCwyMDY3Njk3MjcyLDk3Nj
-UwODMzOCwxOTk3ODc2NjA4LDIwOTI1Mzc2NiwxNDMxMzM3Nzgw
-LC0xMzIyODYxMDAsNTg5NTU2NzY4LC0xMzY5MzMzMzUwLC0xOD
-U4MTQwMDM4LDMwMzQ1NjU4Nl19
+eyJoaXN0b3J5IjpbLTE1NTU4NjIyNDksMjA2NzY5NzI3Miw5Nz
+Y1MDgzMzgsMTk5Nzg3NjYwOCwyMDkyNTM3NjYsMTQzMTMzNzc4
+MCwtMTMyMjg2MTAwLDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMT
+g1ODE0MDAzOCwzMDM0NTY1ODZdfQ==
 -->
