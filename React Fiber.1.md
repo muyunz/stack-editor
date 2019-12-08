@@ -290,12 +290,11 @@ function legacyRenderSubtreeIntoContainer(
   forceHydrate: boolean,
   callback: ?Function,
 ) {
-  // parentComponent = <App/>
-  // chi
-  if (__DEV__) {
-    topLevelUpdateWarnings(container);
-    warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
-  }
+  // parentComponent = null
+  // children = <App/>
+  // container = document.getElementById("root")
+  // forceHydrate = false
+  // callback = undefined
 
   // TODO: Without `any` type, Flow says "Property cannot be accessed on any
   // member of intersection type." Whyyyyyy.
@@ -335,7 +334,7 @@ function legacyRenderSubtreeIntoContainer(
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2NTM5NjAxOCwtMTIwMDAyODY2MiwxND
+eyJoaXN0b3J5IjpbMTEwNjM0ODk4NCwtMTIwMDAyODY2MiwxND
 gwMDcwNTcwLDE0Mjc4MzcyNDEsMTAyMDk2MTQyNywxMTg4NDk2
 MzAzLC0xNTU1ODYyMjQ5LDk3NjUwODMzOCwtMTMyMjg2MTAwLD
 U4OTU1Njc2OCwtMTg1ODE0MDAzOCwtMTEwMjk5NDAzNiwtODE5
