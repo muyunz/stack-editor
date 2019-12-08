@@ -85,18 +85,22 @@ export function createElement(type, config, children) {
   }
   
   // -2 是因前兩個屬性 type, config
-  // 這之後的參數皆為 children
+  // 這之後的參數皆為子組件
   const childrenLength = arguments.length - 2;
-  // 如果只有一個 children
+  // 如果只有一個子組件
   if (childrenLength === 1) {
     props.children = children;
   } else if (childrenLength > 1) {
+    // 建立子組件陣列
     const childArray = Array(childrenLength);
+    // 寫入
     for (let i = 0; i < childrenLength; i++) {
       childArray[i] = arguments[i + 2];
     }
+	// 開發模式
     if (__DEV__) {
       if (Object.freeze) {
+        // 凍結陣列，屎崎
         Object.freeze(childArray);
       }
     }
@@ -138,8 +142,8 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc2NTA4MzM4LC0xMzIyODYxMDAsNTg5NT
-U2NzY4LC0xODU4MTQwMDM4LC0xMTAyOTk0MDM2LC04MTkwMDc4
-NDQsMTI0NTA3NTgyOCwxMzQ3NjU0MTkwLDIwNzk5MTIwNzQsLT
-EyMDQ1MDY0ODcsLTE1OTE5Mzk0MjldfQ==
+eyJoaXN0b3J5IjpbMTcxMjE0OTcxLDk3NjUwODMzOCwtMTMyMj
+g2MTAwLDU4OTU1Njc2OCwtMTg1ODE0MDAzOCwtMTEwMjk5NDAz
+NiwtODE5MDA3ODQ0LDEyNDUwNzU4MjgsMTM0NzY1NDE5MCwyMD
+c5OTEyMDc0LC0xMjA0NTA2NDg3LC0xNTkxOTM5NDI5XX0=
 -->
