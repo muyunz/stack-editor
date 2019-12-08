@@ -15,9 +15,9 @@
 ## Fiber 實現方式
 ## 未整理內容
 1. 深度優先遍歷
-2. 地單鏈表
+2. 遞迴 > 單鏈表
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzkxODU4ODAsMjA3OTkxMjA3NCwtMT
-IwNDUwNjQ4NywtMTU5MTkzOTQyOSw4NjUzMzMxOTVdfQ==
+eyJoaXN0b3J5IjpbMTU3MDkxMzE4OCwyMDc5OTEyMDc0LC0xMj
+A0NTA2NDg3LC0xNTkxOTM5NDI5LDg2NTMzMzE5NV19
 -->
