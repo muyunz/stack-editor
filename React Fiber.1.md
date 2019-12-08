@@ -132,7 +132,7 @@ export function createElement(type, config, children) {
       }
     }
   }
-//
+  // 建立 ReactElement
   return ReactElement(
     type,
     key,
@@ -144,8 +144,66 @@ export function createElement(type, config, children) {
   );
 }
 ```
+接續上方 Code
+```javascript
+const ReactElement = function(type, key, ref, self, source, owner, props) {
+  const element = {
+    // This tag allows us to uniquely identify this as a React Element
+    $$typeof: REACT_ELEMENT_TYPE,
+
+    // Built-in properties that belong on the element
+    type: type,
+    key: key,
+    ref: ref,
+    props: props,
+
+    // Record the component responsible for creating this element.
+    _owner: owner,
+  };
+
+  if (__DEV__) {
+    // The validation flag is currently mutative. We put it on
+    // an external backing store so that we can freeze the whole object.
+    // This can be replaced with a WeakMap once they are implemented in
+    // commonly used development environments.
+    element._store = {};
+
+    // To make comparing ReactElements easier for testing purposes, we make
+    // the validation flag non-enumerable (where possible, which should
+    // include every environment we run tests in), so the test framework
+    // ignores it.
+    Object.defineProperty(element._store, 'validated', {
+      configurable: false,
+      enumerable: false,
+      writable: true,
+      value: false,
+    });
+    // self and source are DEV only properties.
+    Object.defineProperty(element, '_self', {
+      configurable: false,
+      enumerable: false,
+      writable: false,
+      value: self,
+    });
+    // Two elements created in two different places should be considered
+    // equal for testing purposes and therefore we hide it from enumeration.
+    Object.defineProperty(element, '_source', {
+      configurable: false,
+      enumerable: false,
+      writable: false,
+      value: source,
+    });
+    if (Object.freeze) {
+      Object.freeze(element.props);
+      Object.freeze(element);
+    }
+  }
+
+  return element;
+};
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDY3MzA1NzcsOTc2NTA4MzM4LC0xMz
+eyJoaXN0b3J5IjpbLTExOTY3NzM2MTcsOTc2NTA4MzM4LC0xMz
 IyODYxMDAsNTg5NTU2NzY4LC0xODU4MTQwMDM4LC0xMTAyOTk0
 MDM2LC04MTkwMDc4NDQsMTI0NTA3NTgyOCwxMzQ3NjU0MTkwLD
 IwNzk5MTIwNzQsLTEyMDQ1MDY0ODcsLTE1OTE5Mzk0MjldfQ==
