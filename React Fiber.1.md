@@ -46,11 +46,94 @@ React.createElement(Card, {
 [Source](https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js#L316)
 
 ```javascript
+export function createElement(type, config, children) {
+  let propName;
 
+  // props (排除內建 Props)
+  const props = {};
+
+  let key = null;
+  let ref = null;
+  let self = null;
+  let source = null;
+
+  // 如果有額外的屬性
+  if (config != null) {
+    if (hasValidRef(config)) {
+      ref = config.ref;
+    }
+    if (hasValidKey(config)) {
+      key = '' + config.key;
+    }
+
+    self = config.__self === undefined ? null : config.__self;
+    source = config.__source === undefined ? null : config.__source;
+    // Remaining properties are added to a new props object
+    for (propName in config) {
+      if (
+        hasOwnProperty.call(config, propName) &&
+        !RESERVED_PROPS.hasOwnProperty(propName)
+      ) {
+        props[propName] = config[propName];
+      }
+    }
+  }
+
+  // Children can be more than one argument, and those are transferred onto
+  // the newly allocated props object.
+  const childrenLength = arguments.length - 2;
+  if (childrenLength === 1) {
+    props.children = children;
+  } else if (childrenLength > 1) {
+    const childArray = Array(childrenLength);
+    for (let i = 0; i < childrenLength; i++) {
+      childArray[i] = arguments[i + 2];
+    }
+    if (__DEV__) {
+      if (Object.freeze) {
+        Object.freeze(childArray);
+      }
+    }
+    props.children = childArray;
+  }
+
+  // Resolve default props
+  if (type && type.defaultProps) {
+    const defaultProps = type.defaultProps;
+    for (propName in defaultProps) {
+      if (props[propName] === undefined) {
+        props[propName] = defaultProps[propName];
+      }
+    }
+  }
+  if (__DEV__) {
+    if (key || ref) {
+      const displayName =
+        typeof type === 'function'
+          ? type.displayName || type.name || 'Unknown'
+          : type;
+      if (key) {
+        defineKeyPropWarningGetter(props, displayName);
+      }
+      if (ref) {
+        defineRefPropWarningGetter(props, displayName);
+      }
+    }
+  }
+  return ReactElement(
+    type,
+    key,
+    ref,
+    self,
+    source,
+    ReactCurrentOwner.current,
+    props,
+  );
+}
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxOTI2MjM2NCwtMTMyMjg2MTAwLDU4OT
-U1Njc2OCwtMTg1ODE0MDAzOCwtMTEwMjk5NDAzNiwtODE5MDA3
-ODQ0LDEyNDUwNzU4MjgsMTM0NzY1NDE5MCwyMDc5OTEyMDc0LC
-0xMjA0NTA2NDg3LC0xNTkxOTM5NDI5XX0=
+eyJoaXN0b3J5IjpbNTkyNjUzMjkzLC0xMzIyODYxMDAsNTg5NT
+U2NzY4LC0xODU4MTQwMDM4LC0xMTAyOTk0MDM2LC04MTkwMDc4
+NDQsMTI0NTA3NTgyOCwxMzQ3NjU0MTkwLDIwNzk5MTIwNzQsLT
+EyMDQ1MDY0ODcsLTE1OTE5Mzk0MjldfQ==
 -->
