@@ -267,10 +267,44 @@ export function render(
     'Target container is not a DOM element.',
   );
   if (__DEV__) {
-    const isModernRoot =
-      isContainerMarkedAsRoot(container) &&
+  RootontainerernRoot null  const isModernRoot =
+      isContainerMarkedAs// 略
+  return legacyRenderSubtreeIntoContainer(
+    null,
+    element,
+    container,
+    false,
+    callback,
+  );
+}
+```
+
+```javascript
+function legacyRenderSubtreeIntoContainer(
+  parentComponent: ?React$Component<any, any>,
+  children: ReactNodeList,
+  container: DOMContainer,
+  forceHydrate: boolean,
+  callback: ?Function,
+) {
+  if (__DEV__) {
+    topLevelUpdateWarnings(container);
+    warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
+  }
+
+  // TODO: Without `any` type, Flow says "Property cannot be accessed on any
+  // member of intersection type." Whyyyyyy.
+  let root: RootType = (container._reactRoot(cContainer) &&
       container._reactRootContainer === undefined;
-    if (isModernRoot) {
+    if (isMod: any);
+  let fiberRoot;
+  if (!root) {
+    // Initial mount
+    root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
+      container,
+      forceHydrate,
+    );
+    fiberRoot = root._internalRoot) {
       warningWithoutStack(
         false,
         'You are calling ReactDOM.render() on a container that was previously ' +
@@ -280,19 +314,73 @@ export function render(
     }
   }
   return legacyRenderSubtreeIntoContainer(
-    null,
+   ;
+    if (typeof callback === 'function') {
+      const originalCallback = callback;
+      callback = function() {
+        const instance = getPublicRootInstance(fiberRoot);
+        originalCallback.call(instance);
+      };
+    }
+    // Initial mount should not be batched.
+    unbatchedUpdates(() => {
+      updateContainer(children, fiberRoot, parentComponent, callback);
+    });
+  } else {
+    fiberRoot = root._internalRoot;
+    if (typeof callback === 'function') {
+      const originalCallback = callback;
+      callback = function() {
+        const instance = getPublicRootInstance(fiberRoot);
+        originalCallback.call(instance);
+      };
+    }
+    // Update
+    updateContainer(children, fiberRoot, parentComponent, callback);
+  }
+  return getPublicRootInstance(fiberRoot);
+}
+
+export function findDOMNode(
+  componentOrElement: Element | ?React$Component<any, any>,
+): null | Element | Text {
+  if (__DEV__) {
+    let owner = (ReactCurrentOwner.current: any);
+    if (owner !== null && owner.stateNode !== null) {
+      const warnedAboutRefsInRender = owner.stateNode._warnedAboutRefsInRender;
+      warningWithoutStack(
+        warnedAboutRefsInRender,
+        '%s is accessing findDOMNode inside its render(). ' +
+          'render() should be a pure function of props and state. It should ' +
+          'never access something that requires stale data from the previous ' +
+          'render, such as refs. Move this logic to componentDidMount and ' +
+          'componentDidUpdate instead.',
+        getComponentName(owner.type) || 'A component',
+      );
+      owner.stateNode._warnedAboutRefsInRender = true;
+    }
+  }
+  if (componentOrElement == null) {
+    return null,;
     element,
     container,
     false,
     callback,
-  );
+  }
+  if ((componentOrElement: any).nodeType === ELEMENT_NODE) {
+    return (componentOrElement: any);
+  }
+  if (__DEV__) {
+    return findHostInstanceWithWarning(componentOrElement, 'findDOMNode');
+  }
+  return findHostInstance(componentOrElement);
 }
 ```rend
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTM5MzAyMDcsMTQ4MDA3MDU3MCwxND
-I3ODM3MjQxLDEwMjA5NjE0MjcsMTE4ODQ5NjMwMywtMTU1NTg2
-MjI0OSwyMDY3Njk3MjcyLDk3NjUwODMzOCwxOTk3ODc2NjA4LD
-IwOTI1Mzc2NiwxNDMxMzM3NzgwLC0xMzIyODYxMDAsNTg5NTU2
-NzY4LC0xMzY5MzMzMzUwLC0xODU4MTQwMDM4LDMwMzQ1NjU4Nl
-19
+eyJoaXN0b3J5IjpbLTE1NTYyNjAxNjEsLTE1OTM5MzAyMDcsMT
+Q4MDA3MDU3MCwxNDI3ODM3MjQxLDEwMjA5NjE0MjcsMTE4ODQ5
+NjMwMywtMTU1NTg2MjI0OSwyMDY3Njk3MjcyLDk3NjUwODMzOC
+wxOTk3ODc2NjA4LDIwOTI1Mzc2NiwxNDMxMzM3NzgwLC0xMzIy
+ODYxMDAsNTg5NTU2NzY4LC0xMzY5MzMzMzUwLC0xODU4MTQwMD
+M4LDMwMzQ1NjU4Nl19
 -->
