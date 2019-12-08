@@ -29,8 +29,11 @@
 React Hook 中紀錄 hook 執行順序的 `updateQueue` 及紀錄對應狀態的 `memonizedState` 存在於 `fiber` 中
 
 #### React Element > React Fiber
-<d\
+```javascript
+<div>
+</div>
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjkzMzMzNTAsLTE4NTgxNDAwMzgsMz
-AzNDU2NTg2XX0=
+eyJoaXN0b3J5IjpbNTg5NTU2NzY4LC0xMzY5MzMzMzUwLC0xOD
+U4MTQwMDM4LDMwMzQ1NjU4Nl19
 -->
