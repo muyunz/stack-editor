@@ -216,9 +216,16 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
   return element;
 };
 ```
-建立 `ReactElement` 的流程簡單先到這裡，街
+建立 `ReactElement` 的流程簡單先到這裡，接下來我們跳到 `react-dom` 來看整個渲染流程。
+
+```javascript
+ReactDOM.render(
+  <App/>,
+  document.getElementById("root")
+);
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyOTkxNDkzOSwxNDI3ODM3MjQxLDEwMj
+eyJoaXN0b3J5IjpbLTIzODI3NzEzMCwxNDI3ODM3MjQxLDEwMj
 A5NjE0MjcsMTE4ODQ5NjMwMywtMTU1NTg2MjI0OSwyMDY3Njk3
 MjcyLDk3NjUwODMzOCwxOTk3ODc2NjA4LDIwOTI1Mzc2NiwxND
 MxMzM3NzgwLC0xMzIyODYxMDAsNTg5NTU2NzY4LC0xMzY5MzMz
