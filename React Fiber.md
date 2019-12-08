@@ -107,15 +107,17 @@ export function createElement(type, config, children) {
     props.children = childArray;
   }
 
-  // 如果 type 擁有 defaultProps (Class Component, Function Componetn
+  // 如果 type 擁有 defaultProps (Class Component, Function Component)
   if (type && type.defaultProps) {
     const defaultProps = type.defaultProps;
+    // 寫入預設 props
     for (propName in defaultProps) {
       if (props[propName] === undefined) {
         props[propName] = defaultProps[propName];
       }
     }
   }
+  // 開發模式
   if (__DEV__) {
     if (key || ref) {
       const displayName =
@@ -130,6 +132,7 @@ export function createElement(type, config, children) {
       }
     }
   }
+  //
   return ReactElement(
     type,
     key,
@@ -142,8 +145,8 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1OTkxNTU0MCw5NzY1MDgzMzgsMTk5Nz
-g3NjYwOCwyMDkyNTM3NjYsMTQzMTMzNzc4MCwtMTMyMjg2MTAw
-LDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMTg1ODE0MDAzOCwzMD
-M0NTY1ODZdfQ==
+eyJoaXN0b3J5IjpbLTExMDA4MzA5MjksOTc2NTA4MzM4LDE5OT
+c4NzY2MDgsMjA5MjUzNzY2LDE0MzEzMzc3ODAsLTEzMjI4NjEw
+MCw1ODk1NTY3NjgsLTEzNjkzMzMzNTAsLTE4NTgxNDAwMzgsMz
+AzNDU2NTg2XX0=
 -->
