@@ -262,23 +262,7 @@ export function render(
   container: DOMContainer,
   callback: ?Function,
 ) {
-  invariant(
-    isValidContainer(container),
-    'Target container is not a DOM element.',
-  );
-  if (__DEV__) {
-    const isModernRoot =
-      isContainerMarkedAsRoot(container) &&
-      container._reactRootContainer === undefined;
-    if (isModernRoot) {
-      warningWithoutStack(
-        false,
-        'You are calling ReactDOM.render() on a container that was previously ' +
-          'passed to ReactDOM.createRoot(). This is not supported. ' +
-          'Did you mean to call root.render(element)?',
-      );
-    }
-  }
+  // 略
   return legacyRenderSubtreeIntoContainer(
     null,
     element,
@@ -288,11 +272,93 @@ export function render(
   );
 }
 ```
+
+```javascript
+function legacyRenderSubtreeIntoContainer(
+  parentComponent: ?React$Component<any, any>,
+  children: ReactNodeList,
+  container: DOMContainer,
+  forceHydrate: boolean,
+  callback: ?Function,
+) {
+  if (__DEV__) {
+    topLevelUpdateWarnings(container);
+    warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
+  }
+
+  // TODO: Without `any` type, Flow says "Property cannot be accessed on any
+  // member of intersection type." Whyyyyyy.
+  let root: RootType = (container._reactRootContainer: any);
+  let fiberRoot;
+  if (!root) {
+    // Initial mount
+    root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
+      container,
+      forceHydrate,
+    );
+    fiberRoot = root._internalRoot;
+    if (typeof callback === 'function') {
+      const originalCallback = callback;
+      callback = function() {
+        const instance = getPublicRootInstance(fiberRoot);
+        originalCallback.call(instance);
+      };
+    }
+    // Initial mount should not be batched.
+    unbatchedUpdates(() => {
+      updateContainer(children, fiberRoot, parentComponent, callback);
+    });
+  } else {
+    fiberRoot = root._internalRoot;
+    if (typeof callback === 'function') {
+      const originalCallback = callback;
+      callback = function() {
+        const instance = getPublicRootInstance(fiberRoot);
+        originalCallback.call(instance);
+      };
+    }
+    // Update
+    updateContainer(children, fiberRoot, parentComponent, callback);
+  }
+  return getPublicRootInstance(fiberRoot);
+}
+
+export function findDOMNode(
+  componentOrElement: Element | ?React$Component<any, any>,
+): null | Element | Text {
+  if (__DEV__) {
+    let owner = (ReactCurrentOwner.current: any);
+    if (owner !== null && owner.stateNode !== null) {
+      const warnedAboutRefsInRender = owner.stateNode._warnedAboutRefsInRender;
+      warningWithoutStack(
+        warnedAboutRefsInRender,
+        '%s is accessing findDOMNode inside its render(). ' +
+          'render() should be a pure function of props and state. It should ' +
+          'never access something that requires stale data from the previous ' +
+          'render, such as refs. Move this logic to componentDidMount and ' +
+          'componentDidUpdate instead.',
+        getComponentName(owner.type) || 'A component',
+      );
+      owner.stateNode._warnedAboutRefsInRender = true;
+    }
+  }
+  if (componentOrElement == null) {
+    return null;
+  }
+  if ((componentOrElement: any).nodeType === ELEMENT_NODE) {
+    return (componentOrElement: any);
+  }
+  if (__DEV__) {
+    return findHostInstanceWithWarning(componentOrElement, 'findDOMNode');
+  }
+  return findHostInstance(componentOrElement);
+}
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4MDA3MDU3MCwxNDI3ODM3MjQxLDEwMj
-A5NjE0MjcsMTE4ODQ5NjMwMywtMTU1NTg2MjI0OSw5NzY1MDgz
-MzgsLTEzMjI4NjEwMCw1ODk1NTY3NjgsLTE4NTgxNDAwMzgsLT
-ExMDI5OTQwMzYsLTgxOTAwNzg0NCwxMjQ1MDc1ODI4LDEzNDc2
-NTQxOTAsMjA3OTkxMjA3NCwtMTIwNDUwNjQ4NywtMTU5MTkzOT
-QyOV19
+eyJoaXN0b3J5IjpbMTgzNDAyOTk2LDE0ODAwNzA1NzAsMTQyNz
+gzNzI0MSwxMDIwOTYxNDI3LDExODg0OTYzMDMsLTE1NTU4NjIy
+NDksOTc2NTA4MzM4LC0xMzIyODYxMDAsNTg5NTU2NzY4LC0xOD
+U4MTQwMDM4LC0xMTAyOTk0MDM2LC04MTkwMDc4NDQsMTI0NTA3
+NTgyOCwxMzQ3NjU0MTkwLDIwNzk5MTIwNzQsLTEyMDQ1MDY0OD
+csLTE1OTE5Mzk0MjldfQ==
 -->
