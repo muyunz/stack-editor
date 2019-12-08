@@ -13,8 +13,11 @@
 #### 未來 ( Suspense, Concurrent Mode )
 1. JIT優化
 ## Fiber 實現方式
-  
+## 未整理內容
+1. 深度優先遍歷
+2. 地單鏈表
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3OTkxMjA3NCwtMTIwNDUwNjQ4NywtMT
-U5MTkzOTQyOSw4NjUzMzMxOTVdfQ==
+eyJoaXN0b3J5IjpbLTE4MzkxODU4ODAsMjA3OTkxMjA3NCwtMT
+IwNDUwNjQ4NywtMTU5MTkzOTQyOSw4NjUzMzMxOTVdfQ==
 -->
