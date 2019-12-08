@@ -73,7 +73,7 @@ export function createElement(type, config, children) {
     self = config.__self === undefined ? null : config.__self;
     source = config.__source === undefined ? null : config.__source;
     
-    // 把除了內建 props 注入
+    // 只寫入非內建 props
     for (propName in config) {
       if (
         hasOwnProperty.call(config, propName) &&
@@ -83,9 +83,8 @@ export function createElement(type, config, children) {
       }
     }
   }
-
-  // Children can be more than one argument, and those are transferred onto
-  // the newly allocated props object.
+  
+  
   const childrenLength = arguments.length - 2;
   if (childrenLength === 1) {
     props.children = children;
@@ -137,8 +136,8 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTg2ODEwNzUsLTEzMjI4NjEwMCw1OD
-k1NTY3NjgsLTE4NTgxNDAwMzgsLTExMDI5OTQwMzYsLTgxOTAw
-Nzg0NCwxMjQ1MDc1ODI4LDEzNDc2NTQxOTAsMjA3OTkxMjA3NC
-wtMTIwNDUwNjQ4NywtMTU5MTkzOTQyOV19
+eyJoaXN0b3J5IjpbMzQ1ODQyMzgxLC0xMzIyODYxMDAsNTg5NT
+U2NzY4LC0xODU4MTQwMDM4LC0xMTAyOTk0MDM2LC04MTkwMDc4
+NDQsMTI0NTA3NTgyOCwxMzQ3NjU0MTkwLDIwNzk5MTIwNzQsLT
+EyMDQ1MDY0ODcsLTE1OTE5Mzk0MjldfQ==
 -->
