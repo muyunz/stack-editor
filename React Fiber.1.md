@@ -264,7 +264,7 @@ export function render(
   callback: ?Function,
 ) {
   // element = <App/>
-  // container = document.
+  // container = document.getElementById("root")
   invariant(
     isValidContainer(container),
     'Target container is not a DOM element.',
@@ -290,6 +290,7 @@ function legacyRenderSubtreeIntoContainer(
   forceHydrate: boolean,
   callback: ?Function,
 ) {
+  // paremnt
   if (__DEV__) {
     topLevelUpdateWarnings(container);
     warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
@@ -333,7 +334,7 @@ function legacyRenderSubtreeIntoContainer(
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5MzIxNTkyMywtMTIwMDAyODY2MiwxND
+eyJoaXN0b3J5IjpbMTM1NTI3NTU1MywtMTIwMDAyODY2MiwxND
 gwMDcwNTcwLDE0Mjc4MzcyNDEsMTAyMDk2MTQyNywxMTg4NDk2
 MzAzLC0xNTU1ODYyMjQ5LDk3NjUwODMzOCwtMTMyMjg2MTAwLD
 U4OTU1Njc2OCwtMTg1ODE0MDAzOCwtMTEwMjk5NDAzNiwtODE5
