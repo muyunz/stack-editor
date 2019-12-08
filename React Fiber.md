@@ -290,12 +290,11 @@ function legacyRenderSubtreeIntoContainer(
   forceHydrate: boolean,
   callback: ?Function,
 ) {
-  // parentComponent = <App/>
-  // children
-  if (__DEV__) {
-    topLevelUpdateWarnings(container);
-    warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
-  }
+  // parentComponent = 
+  // children = <App/>
+  // container = document.getElementById("root")
+  // forceHydrate = false
+  // callback = undefined
 
   // TODO: Without `any` type, Flow says "Property cannot be accessed on any
   // member of intersection type." Whyyyyyy.
@@ -335,10 +334,11 @@ function legacyRenderSubtreeIntoContainer(
 }
 ``````
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3NDMxMDA2NywxNzAxNDM0MzEsLTEyMD
-AwMjg2NjIsLTE1OTM5MzAyMDcsMTQ4MDA3MDU3MCwxNDI3ODM3
-MjQxLDEwMjA5NjE0MjcsMTE4ODQ5NjMwMywtMTU1NTg2MjI0OS
-wyMDY3Njk3MjcyLDk3NjUwODMzOCwxOTk3ODc2NjA4LDIwOTI1
-Mzc2NiwxNDMxMzM3NzgwLC0xMzIyODYxMDAsNTg5NTU2NzY4LC
-0xMzY5MzMzMzUwLC0xODU4MTQwMDM4LDMwMzQ1NjU4Nl19
+eyJoaXN0b3J5IjpbLTE0OTgyNzAzMDEsLTM3NDMxMDA2NywtMT
+IwMDAyODY2MiwtMTU5MzkzMDIwNywxNDgwMDcwNTcwLDE0Mjc4
+MzcyNDEsMTAyMDk2MTQyNywxMTg4NDk2MzAzLC0xNTU1ODYyMj
+Q5LDIwNjc2OTcyNzIsOTc2NTA4MzM4LDE5OTc4NzY2MDgsMjA5
+MjUzNzY2LDE0MzEzMzc3ODAsLTEzMjI4NjEwMCw1ODk1NTY3Nj
+gsLTEzNjkzMzMzNTAsLTE4NTgxNDAwMzgsMzAzNDU2NTg2XX0=
+
 -->
