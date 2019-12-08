@@ -290,7 +290,7 @@ function legacyRenderSubtreeIntoContainer(
   forceHydrate: boolean,
   callback: ?Function,
 ) {
-  // parentComponent = null
+  // parentComponent = 
   // children = <App/>
   // container = document.getElementById("root")
   // forceHydrate = false
@@ -332,12 +332,12 @@ function legacyRenderSubtreeIntoContainer(
   }
   return getPublicRootInstance(fiberRoot);
 }
-```
+``````
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwNjM0ODk4NCwtMTIwMDAyODY2MiwxND
-gwMDcwNTcwLDE0Mjc4MzcyNDEsMTAyMDk2MTQyNywxMTg4NDk2
-MzAzLC0xNTU1ODYyMjQ5LDk3NjUwODMzOCwtMTMyMjg2MTAwLD
-U4OTU1Njc2OCwtMTg1ODE0MDAzOCwtMTEwMjk5NDAzNiwtODE5
-MDA3ODQ0LDEyNDUwNzU4MjgsMTM0NzY1NDE5MCwyMDc5OTEyMD
-c0LC0xMjA0NTA2NDg3LC0xNTkxOTM5NDI5XX0=
+eyJoaXN0b3J5IjpbLTE0OTgyNzAzMDEsLTEyMDAwMjg2NjIsMT
+Q4MDA3MDU3MCwxNDI3ODM3MjQxLDEwMjA5NjE0MjcsMTE4ODQ5
+NjMwMywtMTU1NTg2MjI0OSw5NzY1MDgzMzgsLTEzMjI4NjEwMC
+w1ODk1NTY3NjgsLTE4NTgxNDAwMzgsLTExMDI5OTQwMzYsLTgx
+OTAwNzg0NCwxMjQ1MDc1ODI4LDEzNDc2NTQxOTAsMjA3OTkxMj
+A3NCwtMTIwNDUwNjQ4NywtMTU5MTkzOTQyOV19
 -->
