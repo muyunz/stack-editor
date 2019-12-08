@@ -73,7 +73,7 @@ export function createElement(type, config, children) {
     self = config.__self === undefined ? null : config.__self;
     source = config.__source === undefined ? null : config.__source;
     
-    // ㄅㄚ// Remaining properties are added to a new props object
+    // // Remaining properties are added to a new props object把除了內建的
     for (propName in config) {
       if (
         hasOwnProperty.call(config, propName) &&
@@ -137,7 +137,7 @@ export function createElement(type, config, children) {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzMTMzNzc4MCwtMTk0MDA1NTY3NCwtMT
-MyMjg2MTAwLDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMTg1ODE0
-MDAzOCwzMDM0NTY1ODZdfQ==
+eyJoaXN0b3J5IjpbNjIxOTA5NTk0LDE0MzEzMzc3ODAsLTEzMj
+I4NjEwMCw1ODk1NTY3NjgsLTEzNjkzMzMzNTAsLTE4NTgxNDAw
+MzgsMzAzNDU2NTg2XX0=
 -->
