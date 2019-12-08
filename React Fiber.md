@@ -290,7 +290,8 @@ function legacyRenderSubtreeIntoContainer(
   forceHydrate: boolean,
   callback: ?Function,
 ) {
-  // paremnt
+  // parentComponent = <App/>
+  // children
   if (__DEV__) {
     topLevelUpdateWarnings(container);
     warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
@@ -334,10 +335,10 @@ function legacyRenderSubtreeIntoContainer(
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NTI3NTU1MywtMTIwMDAyODY2MiwtMT
-U5MzkzMDIwNywxNDgwMDcwNTcwLDE0Mjc4MzcyNDEsMTAyMDk2
-MTQyNywxMTg4NDk2MzAzLC0xNTU1ODYyMjQ5LDIwNjc2OTcyNz
-IsOTc2NTA4MzM4LDE5OTc4NzY2MDgsMjA5MjUzNzY2LDE0MzEz
-Mzc3ODAsLTEzMjI4NjEwMCw1ODk1NTY3NjgsLTEzNjkzMzMzNT
-AsLTE4NTgxNDAwMzgsMzAzNDU2NTg2XX0=
+eyJoaXN0b3J5IjpbMTcwMTQzNDMxLC0xMjAwMDI4NjYyLC0xNT
+kzOTMwMjA3LDE0ODAwNzA1NzAsMTQyNzgzNzI0MSwxMDIwOTYx
+NDI3LDExODg0OTYzMDMsLTE1NTU4NjIyNDksMjA2NzY5NzI3Mi
+w5NzY1MDgzMzgsMTk5Nzg3NjYwOCwyMDkyNTM3NjYsMTQzMTMz
+Nzc4MCwtMTMyMjg2MTAwLDU4OTU1Njc2OCwtMTM2OTMzMzM1MC
+wtMTg1ODE0MDAzOCwzMDM0NTY1ODZdfQ==
 -->
