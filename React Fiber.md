@@ -291,7 +291,7 @@ function legacyRenderSubtreeIntoContainer(
   callback: ?Function,
 ) {
   /*
-  parentComponent = null //
+  parentComponent = null <-目前是建立根節點，所以沒 parentComponent
   children = <App/>
   container = document.getElementById("root")
   forceHydrate = false
@@ -299,8 +299,12 @@ function legacyRenderSubtreeIntoContainer(
   */
   // TODO: Without `any` type, Flow says "Property cannot be accessed on any
   // member of intersection type." Whyyyyyy.
+  
+  // 第一次執行 container._reactRootContainer = undefined
   let root: RootType = (container._reactRootContainer: any);
   let fiberRoot;
+ 
+  // 如果 root 不存在，則建立
   if (!root) {
     // Initial mount
     root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
@@ -335,7 +339,7 @@ function legacyRenderSubtreeIntoContainer(
 }
 ``````
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2NzM3MjExMCwtMTQ5ODI3MDMwMSwtMz
+eyJoaXN0b3J5IjpbLTg3MTcxMDU5MywtMTQ5ODI3MDMwMSwtMz
 c0MzEwMDY3LC0xMjAwMDI4NjYyLC0xNTkzOTMwMjA3LDE0ODAw
 NzA1NzAsMTQyNzgzNzI0MSwxMDIwOTYxNDI3LDExODg0OTYzMD
 MsLTE1NTU4NjIyNDksMjA2NzY5NzI3Miw5NzY1MDgzMzgsMTk5
