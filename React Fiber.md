@@ -353,7 +353,7 @@ function legacyCreateRootFromDOMContainer(
   const shouldHydrate =
     forceHydrate || shouldHydrateDueToLegacyHeuristic(container);
   
-  // 移除 container 底下ㄜ
+  // 移除 container 底下的所有子元素
   if (!shouldHydrate) {
     let warned = false;
     let rootSibling;
@@ -401,11 +401,11 @@ function legacyCreateRootFromDOMContainer(
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjI3MjEzMTUsNDc3ODY5MDkwLC04NzE3MT
-A1OTMsLTE0OTgyNzAzMDEsLTM3NDMxMDA2NywtMTIwMDAyODY2
-MiwtMTU5MzkzMDIwNywxNDgwMDcwNTcwLDE0Mjc4MzcyNDEsMT
-AyMDk2MTQyNywxMTg4NDk2MzAzLC0xNTU1ODYyMjQ5LDIwNjc2
-OTcyNzIsOTc2NTA4MzM4LDE5OTc4NzY2MDgsMjA5MjUzNzY2LD
-E0MzEzMzc3ODAsLTEzMjI4NjEwMCw1ODk1NTY3NjgsLTEzNjkz
-MzMzNTBdfQ==
+eyJoaXN0b3J5IjpbLTIwMDkxNDg4OTcsNDc3ODY5MDkwLC04Nz
+E3MTA1OTMsLTE0OTgyNzAzMDEsLTM3NDMxMDA2NywtMTIwMDAy
+ODY2MiwtMTU5MzkzMDIwNywxNDgwMDcwNTcwLDE0Mjc4MzcyND
+EsMTAyMDk2MTQyNywxMTg4NDk2MzAzLC0xNTU1ODYyMjQ5LDIw
+Njc2OTcyNzIsOTc2NTA4MzM4LDE5OTc4NzY2MDgsMjA5MjUzNz
+Y2LDE0MzEzMzc3ODAsLTEzMjI4NjEwMCw1ODk1NTY3NjgsLTEz
+NjkzMzMzNTBdfQ==
 -->
