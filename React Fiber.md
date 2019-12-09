@@ -344,9 +344,16 @@ function legacyCreateRootFromDOMContainer(
   container: DOMContainer,
   forceHydrate: boolean,
 ): RootType {
+  /*
+    container = document.getElementById("root")
+    forceHydrate = false
+  */
+  // 是否需要進行 hydrate (SSR)
+  // TODO: shouldHydrateDueToLegacyHeuristic 補充
   const shouldHydrate =
     forceHydrate || shouldHydrateDueToLegacyHeuristic(container);
-  // First clear any existing content.
+  
+  // 移除 container 底下ㄜ
   if (!shouldHydrate) {
     let warned = false;
     let rootSibling;
@@ -394,11 +401,11 @@ function legacyCreateRootFromDOMContainer(
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxNjc1MDE5NSw0Nzc4NjkwOTAsLTg3MT
-cxMDU5MywtMTQ5ODI3MDMwMSwtMzc0MzEwMDY3LC0xMjAwMDI4
-NjYyLC0xNTkzOTMwMjA3LDE0ODAwNzA1NzAsMTQyNzgzNzI0MS
-wxMDIwOTYxNDI3LDExODg0OTYzMDMsLTE1NTU4NjIyNDksMjA2
-NzY5NzI3Miw5NzY1MDgzMzgsMTk5Nzg3NjYwOCwyMDkyNTM3Nj
-YsMTQzMTMzNzc4MCwtMTMyMjg2MTAwLDU4OTU1Njc2OCwtMTM2
-OTMzMzM1MF19
+eyJoaXN0b3J5IjpbNjI3MjEzMTUsNDc3ODY5MDkwLC04NzE3MT
+A1OTMsLTE0OTgyNzAzMDEsLTM3NDMxMDA2NywtMTIwMDAyODY2
+MiwtMTU5MzkzMDIwNywxNDgwMDcwNTcwLDE0Mjc4MzcyNDEsMT
+AyMDk2MTQyNywxMTg4NDk2MzAzLC0xNTU1ODYyMjQ5LDIwNjc2
+OTcyNzIsOTc2NTA4MzM4LDE5OTc4NzY2MDgsMjA5MjUzNzY2LD
+E0MzEzMzc3ODAsLTEzMjI4NjEwMCw1ODk1NTY3NjgsLTEzNjkz
+MzMzNTBdfQ==
 -->
