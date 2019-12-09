@@ -304,7 +304,6 @@ function legacyRenderSubtreeIntoContainer(
   let root: RootType = (container._reactRootContainer: any);
   let fiberRoot;
  
-  // 如果 root 不存在，則建立
   if (!root) {
     // Initial mount
     root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
@@ -339,11 +338,11 @@ function legacyRenderSubtreeIntoContainer(
 }
 ``````
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3MTcxMDU5MywtMTQ5ODI3MDMwMSwtMz
-c0MzEwMDY3LC0xMjAwMDI4NjYyLC0xNTkzOTMwMjA3LDE0ODAw
-NzA1NzAsMTQyNzgzNzI0MSwxMDIwOTYxNDI3LDExODg0OTYzMD
-MsLTE1NTU4NjIyNDksMjA2NzY5NzI3Miw5NzY1MDgzMzgsMTk5
-Nzg3NjYwOCwyMDkyNTM3NjYsMTQzMTMzNzc4MCwtMTMyMjg2MT
-AwLDU4OTU1Njc2OCwtMTM2OTMzMzM1MCwtMTg1ODE0MDAzOCwz
-MDM0NTY1ODZdfQ==
+eyJoaXN0b3J5IjpbNDc3ODY5MDkwLC04NzE3MTA1OTMsLTE0OT
+gyNzAzMDEsLTM3NDMxMDA2NywtMTIwMDAyODY2MiwtMTU5Mzkz
+MDIwNywxNDgwMDcwNTcwLDE0Mjc4MzcyNDEsMTAyMDk2MTQyNy
+wxMTg4NDk2MzAzLC0xNTU1ODYyMjQ5LDIwNjc2OTcyNzIsOTc2
+NTA4MzM4LDE5OTc4NzY2MDgsMjA5MjUzNzY2LDE0MzEzMzc3OD
+AsLTEzMjI4NjEwMCw1ODk1NTY3NjgsLTEzNjkzMzMzNTAsLTE4
+NTgxNDAwMzhdfQ==
 -->
